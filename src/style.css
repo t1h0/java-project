@@ -1,0 +1,7 @@
+.grid {
+    -fx-stroke-width: 0.5;
+    -fx-stroke: gray;
+}
+.menu {
+    -fx-background-color: rgb(212, 212, 212);
+}
