@@ -1,13 +1,14 @@
-# Java project submission
+# Java project
+## A geometrical playground
 
-This was my final submission for my java course during my master's studies.
+My final submission to the java course during my master's studies. General functionality was given but expanded by me.
 
-## Requirements
+### Requirements
 
 * Java 11
 * JavaFX 11
 
-## Functionality
+### Features
 
 * Draw points on the screen and add geometrical shapes (lines, rectangles, circles) by clicking on two already drawn points.
 * Shapes can be filled (check 'Fill') and different colors can be chosen for every entity drawn onto the screen.
