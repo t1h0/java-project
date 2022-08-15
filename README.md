@@ -1,4 +1,4 @@
-# Java project
+# Geo Draw
 ## A geometrical playground
 
 My final submission to the java course during my master's studies. General functionality was given but expanded by me.
