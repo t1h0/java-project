@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
@@ -22,8 +23,9 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 	/**
 	 * Creates a new handler with a given root as reference
 	 * 
-	 * @param Pane root; the root to dynamically make changes on.
+	 * @param targetPane, Pane; the root to dynamically make changes on.
 	 */
+	// TODO: Add docstrings for other args.
 	public MouseHandler(Pane targetPane, ToggleGroup shapeOption, CheckBox fill, ColorPicker color) {
 		this.targetPane = targetPane;
 		this.shapeOption = shapeOption;

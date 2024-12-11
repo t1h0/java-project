@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import javafx.scene.shape.Line;
 
 public class MyLine extends Line{

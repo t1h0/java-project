@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import javafx.scene.control.Tooltip;
 import javafx.scene.shape.Circle;
 
@@ -41,24 +42,5 @@ public class MyCircle extends Circle{
 		// TODO Auto-generated method stub
 		return "Center: " + this.center + "\nRadius: "+this.radius;
 	}
-	
-//	DEPRECATED
-//	/**
-//	 * Sets the radius of the circle.
-//	 * 
-//	 * @param radius, double; the new radius of the circle.
-//	 */
-//	public void setRadius(double radius) {
-//		this.radius = radius;
-//	}
-//
-//	/**
-//	 * Gets the radius of the circle.
-//	 * 
-//	 * @return double; the radius of the circle.
-//	 */
-//	public double getRadius() {
-//		return radius;
-//	}
 
 }

@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import javafx.scene.control.Tooltip;
 import javafx.scene.shape.Rectangle;
 
@@ -127,55 +128,5 @@ public class MyRectangle extends Rectangle {
 
 	}
 
-//	DEPRECATED 
-//	/**
-//	 * Gets the height of the rectangle.
-//	 * 
-//	 * @return double; the height of the rectangle.
-//	 */
-//	public double getHeight() {
-//		return height;
-//	}
 
-//	/**
-//	 * Sets the height of the rectangle.
-//	 */
-//	private void setHeight() {
-//		this.width = Math.abs(this.bottomLeft.getY() - this.topLeft.getY());
-//	}
-
-//	/**
-//	 * Gets the width of the rectangle.
-//	 * 
-//	 * @return double; the width of the rectangle.
-//	 */
-//	public double getWidth() {
-//		return width;
-//	}
-
-//	/**
-//	 * Sets the width of the rectangle.
-//	 */
-//	private void setWidth() {
-//		this.width = Math.abs(this.bottomLeft.getX() - this.bottomRight.getX());
-//	}
-
-//	/**
-//	 * Recreates the rectangle with the given two new points defining the diagonal.
-//	 * 
-//	 * @param point1, MyPoint; the first point.
-//	 * @param point2, MyPoint; the second point.
-//	 */
-//	public void setDiagonal(MyPoint point1, MyPoint point2) {
-//		if ((point1.getX() - point2.getX()) + (point1.getY() - point2.getY()) < 0) {
-//			this.bottomLeft = point1;
-//			this.topRight = point2;
-//		} else {
-//			this.bottomLeft = point2;
-//			this.topRight = point1;
-//		}
-//		this.setPosition();
-//		this.setWidth();
-//		this.setHeight();
-//	}
 }

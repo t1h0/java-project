@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -48,8 +49,6 @@ public class BtnHandler implements EventHandler<ActionEvent> {
 	 * @param targetStage, Stage; the stage to act on (to show a file loading
 	 *                     window).
 	 * @param targetPane,  Pane; the pane to act on.
-	 * @param color,       ColorPicker; the colorpicker which defines the color the
-	 *                     drawn points.
 	 */
 	public BtnHandler(Stage targetStage, Pane targetPane) {
 		this.targetStage = targetStage;

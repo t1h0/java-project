@@ -1,9 +1,12 @@
+package de.tilmanhornung.java;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import javafx.scene.Node;
 
 public class Utilities {
@@ -27,8 +30,8 @@ public class Utilities {
 	/**
 	 * Compares two doubles (equal, greater or lesser).
 	 * 
-	 * @param a Double; The first double.
-	 * @param b Double; The second double.
+	 * @param d1, double ; The first double.
+	 * @param d2, double ; The second double.
 	 * @return int; 1 if d1>d2, 0 if d1==d2, -1 if d1<d2.
 	 */
 	public static int doubleComparison2(double d1, double d2) {
@@ -157,24 +160,24 @@ public class Utilities {
 		double inter2 = line2.getIntercept();
 		if (Double.isInfinite(slope1)) { // line 1 vertical?
 			double x = line1.getStartX();
-			return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(x, line2.getY(x))));
+			return new ArrayList<MyPoint>(List.of(new MyPoint(x, line2.getY(x))));
 		} else if (Double.isInfinite(slope2)) { // line 2 vertical?
 			double x = line2.getStartX();
-			return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(x, line1.getY(x))));
+			return new ArrayList<MyPoint>(List.of(new MyPoint(x, line1.getY(x))));
 		}
 		double intersectionX = (inter2 - inter1) / (slope1 - slope2);
-		return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(intersectionX, line1.getY(intersectionX))));
+		return new ArrayList<MyPoint>(List.of(new MyPoint(intersectionX, line1.getY(intersectionX))));
 	}
 
 	/**
-	 * Calculates the intersection point(s) of a given line with a given circle. See
-	 * https://de.wikipedia.org/wiki/Schnittpunkt#Schnittpunkte_einer_Geraden_mit_einem_Kreis
-	 * 
-	 * @param line,   MyLine; the line.
-	 * @param circle, MyCircle; the circle.
-	 * @return ArrayList<MyPoint>; the intersection point(s) of the line with the
-	 *         circle. Empty if no intersection.
-	 */
+     * Calculates the intersection point(s) of a given line with a given circle. See
+     * <a href="https://de.wikipedia.org/wiki/Schnittpunkt#Schnittpunkte_einer_Geraden_mit_einem_Kreis">here</a>
+     *
+     * @param line,   MyLine; the line.
+     * @param circle, MyCircle; the circle.
+     * @return ArrayList<MyPoint>; the intersection point(s) of the line with the
+     *         circle. Empty if no intersection.
+     */
 	public static ArrayList<MyPoint> getPointOfIntersection(MyLine line, MyCircle circle) {
 		// y=mx+b <=> mx-y=-b ~> ax+by = c
 		double a = line.getSlope();
@@ -208,14 +211,14 @@ public class Utilities {
 	}
 
 	/**
-	 * Calculates the intersection point(s) of two given circles. See
-	 * https://de.wikipedia.org/wiki/Schnittpunkt#Schnittpunkte_zweier_Kreise
-	 * 
-	 * @param circle1, MyCircle; the first circle.
-	 * @param circle2, MyCircle; the second circle.
-	 * @return ArrayList<MyPoint>; the intersection point(s) of the two circles.
-	 *         Empty if no intersection.
-	 */
+     * Calculates the intersection point(s) of two given circles. See
+     * <a href="https://de.wikipedia.org/wiki/Schnittpunkt#Schnittpunkte_zweier_Kreise">here</a>
+     *
+     * @param circle1, MyCircle; the first circle.
+     * @param circle2, MyCircle; the second circle.
+     * @return ArrayList<MyPoint>; the intersection point(s) of the two circles.
+     *         Empty if no intersection.
+     */
 	public static ArrayList<MyPoint> getPointOfIntersection(MyCircle circle1, MyCircle circle2) {
 		double d12 = Utilities.getDistance(circle1.getCenter(), circle2.getCenter()); // distance between the centers
 		double r12 = Math.pow(circle1.getRadius(), 2); // first radius squared
@@ -237,7 +240,7 @@ public class Utilities {
 			double y2 = y01 + d0 * ((y02 - y01) / d12) - e0 * ((x02 - x01) / d12);
 			return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(x1, y1), new MyPoint(x2, y2))); // two intersections
 		}
-		return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(x1, y1))); // one intersection
+		return new ArrayList<MyPoint>(List.of(new MyPoint(x1, y1))); // one intersection
 
 	}
 
@@ -358,7 +361,7 @@ public class Utilities {
 			String line;
 			while ((line = in.readLine()) != null) {
 				String[] coords = line.split("\\s*,\\s*");
-				points.add(new MyPoint(Integer.valueOf(coords[0]), Integer.valueOf(coords[1])));
+				points.add(new MyPoint(Integer.parseInt(coords[0]), Integer.parseInt(coords[1])));
 			}
 			in.close();
 		} catch (IOException e) {
@@ -425,49 +428,5 @@ public class Utilities {
 	public static boolean isOrthogonal(MyLine line1, MyLine line2) {
 		return isOrthogonal(line1.getSlope(),line2.getSlope());
 	}
-
-//	DEPRECATED
-//
-//	/**
-//	 * Calculates the intersection point of the line connecting the first two given
-//	 * data points with the line connecting the last two given data points.
-//	 * 
-//	 * @param x1, double; x-coordinate of the first data point.
-//	 * @param y1, double; y-coordinate of the first data point.
-//	 * @param x2, double; x-coordinate of the second data point.
-//	 * @param y2, double; y-coordinate of the second data point.
-//	 * @return ArrayList<MyPoint>; a list containing the intersection point.
-//	 */
-//	public static ArrayList<MyPoint> getPointOfIntersection(double[] point1, double[] point2, double[] point3,
-//			double[] point4) {
-//		double slope1 = getSlope(point1[0], point1[1], point2[0], point2[1]);
-//		double slope2 = getSlope(point3[0], point3[1], point4[0], point4[1]);
-//		double inter1 = getIntercept(point1[0], point1[1], point2[0], point2[1]);
-//		double inter2 = getIntercept(point3[0], point3[1], point4[0], point4[1]);
-//		double intersectionX = (inter2 - inter1) / (slope1 - slope2);
-//		return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(intersectionX, slope1 * intersectionX + inter1)));
-//	}
-//
-//	/**
-//	 * Calculates the intersection point of the line connecting the first two given
-//	 * data points with the line connecting the last two given data points.
-//	 * 
-//	 * @param point1, MyPoint; first data point.
-//	 * @param point2, MyPoint; second data point.
-//	 * @param point3, MyPoint; third data point.
-//	 * @param point4, MyPoint; fourth data point.
-//	 * @return double; the intersection point of the line connecting the first two
-//	 *         given data points with the line connecting the last two given data
-//	 *         points.
-//	 */
-//	public static ArrayList<MyPoint> getPointOfIntersection(MyPoint point1, MyPoint point2, MyPoint point3,
-//			MyPoint point4) {
-//		double slope1 = getSlope(point1, point2);
-//		double slope2 = getSlope(point3, point4);
-//		double inter1 = getIntercept(point1, point2);
-//		double inter2 = getIntercept(point3, point4);
-//		double intersectionX = (inter2 - inter1) / (slope1 - slope2);
-//		return new ArrayList<MyPoint>(Arrays.asList(new MyPoint(intersectionX, slope1 * intersectionX + inter1)));
-//	}
 
 }

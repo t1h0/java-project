@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import javafx.scene.control.Tooltip;
 import javafx.scene.shape.Circle;
 
@@ -47,7 +48,7 @@ public class MyPoint extends Circle{
 	/**
 	 * Sets the x coordinate of this point.
 	 * 
-	 * @param double x; the new x coordinate of this point.
+	 * @param x, double; the new x coordinate of this point.
 	 */
 	public void setX(double x) {
 		this.setCenterX(x);
@@ -56,7 +57,7 @@ public class MyPoint extends Circle{
 	/**
 	 * Sets the y coordinate of this point.
 	 * 
-	 * @param double y; the new y coordinate of this point.
+	 * @param y, double; the new y coordinate of this point.
 	 */
 	public void setY(double y) {
 		this.setCenterY(y);
@@ -82,22 +83,5 @@ public class MyPoint extends Circle{
 		// TODO Auto-generated method stub
 		return "["+this.getX()+","+this.getY()+"]";
 	}
-	
-//	DEPRECATED
-//	
-//	/**
-//	 * Sets the coordinates of this point.
-//	 * 
-//	 * @param double[] coords; the coordinates of this point in the form {x,y}.
-//	 * @throws Exception; if the given array is not of the right form.
-//	 */
-//	public void setCoords(double[] coords) throws Exception {
-//		if (coords.length != 2) {
-//			throw new Exception("setCoords needs an array of two doubles as input.");
-//		}
-//		this.x = coords[0];
-//		this.y = coords[1];
-//	}
-//	
 
 }

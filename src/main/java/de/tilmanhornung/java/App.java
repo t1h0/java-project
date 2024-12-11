@@ -1,3 +1,4 @@
+package de.tilmanhornung.java;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -14,7 +15,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class StartProject extends Application {
+public class App extends Application {
 
 	/**
 	 * Launches the application.
